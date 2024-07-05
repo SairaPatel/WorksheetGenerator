@@ -2,12 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Worksheet Generator</title>
+        <title>Resource Generator</title>
 
     </head>
 
     <body>
-        <h1>Worksheet Generator</h1>
+        <h1>Resource Generator</h1>
 
         <nav>
             <ul>
@@ -26,6 +26,36 @@
             </ul>
         </nav>
 
-        <h2> Times Tables </h2>
+        <h2> Times Tables Worksheet</h2>
+        <form action="\worksheet" method="post">
+            <fieldset>
+                <label for="title-input">Worksheet Title: </label>
+                <br/>
+                <input type="text" id="title-input" name="title-input" value="Times Tables Quiz">
+                <br/>
+
+                <br/>
+
+                <label for="questions-input">Number of Questions: </label>
+                <br/>
+                <input type="number" min="1" max="100" value="20" name="questions-input" id="questions-input">
+                <br/>
+
+            </fieldset>
+            
+            <fieldset>
+                <legend>Times Tables</legend>
+                {% for n in range(2,16) %}
+                    <label for="checkbox{{n}}">{{n}}</label>
+                    <input type="checkbox" value="{{n}}" name="checkbox{{n}}" id="checkbox{{n}}" checked>
+                    <br/>
+                {% endfor %}
+            </fieldset>
+            
+            <br/>
+
+            <button type="submit">Create Worksheet</button>
+
+        </form>
     </body>
 </html>

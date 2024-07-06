@@ -31,14 +31,19 @@
             <fieldset>
                 <label for="title-input">Worksheet Title: </label>
                 <br/>
-                <input type="text" id="title-input" name="title-input" value="Times Tables Quiz">
+                <input type="text" id="title-input" name="title" value="Times Tables Quiz">
                 <br/>
 
                 <br/>
 
                 <label for="questions-input">Number of Questions: </label>
                 <br/>
-                <input type="number" min="1" max="100" value="20" name="questions-input" id="questions-input">
+                <input type="number" min="1" max="100" value="20" name="questions" id="questions-input">
+                <br/>
+
+                <label for="up-to-input">Times Tables Up To:</label>
+                <br/>
+                <input type="number" min="2" value="12" name="up-to" id="up-to-input">
                 <br/>
 
             </fieldset>
@@ -47,7 +52,7 @@
                 <legend>Times Tables</legend>
                 {% for n in range(2,16) %}
                     <label for="checkbox{{n}}">{{n}}</label>
-                    <input type="checkbox" value="{{n}}" name="checkbox{{n}}" id="checkbox{{n}}" checked>
+                    <input type="checkbox" value="{{n}}" name="times-tables" id="checkbox{{n}}" checked>
                     <br/>
                 {% endfor %}
             </fieldset>

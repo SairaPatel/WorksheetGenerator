@@ -1,0 +1,20 @@
+<!DOCTYPE html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ws.title}}</title>
+
+    </head>
+
+    <body>
+        <h1>{{ws.title}}</h1>
+
+        <p>{{ws.instructions}}</p>
+
+        <ol>
+            {% for question in ws.questions %}
+                <li>{{question}}</li>
+            {% endfor %}
+        </ol>
+    </body>
+</html>

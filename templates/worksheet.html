@@ -4,6 +4,8 @@
         <meta charset="UTF-8">
         <title>{{ws.title}}</title>
 
+        <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+
     </head>
 
     <body>
@@ -11,10 +13,14 @@
 
         <p>{{ws.instructions}}</p>
 
-        <ol>
-            {% for question in ws.questions %}
-                <li>{{question}}</li>
+        <div id="questions-box">
+            {% for i in range(ws.questions|length) %}
+                <div class="question-line">
+                    <p class="question-num">{{i+1}}</p>
+                    <p class="question"> {{ws.questions[i]}}</p>
+                    <p>=</p>
+                </div>
             {% endfor %}
-        </ol>
+        </div>
     </body>
 </html>

@@ -33,9 +33,9 @@ def worksheet():
             num2 = int(random.choice(selectedNums))
 
             if num1 < num2:
-                question = f"{num1} x {num2} = "
+                question = f"{num1} x {num2}"
             else:
-                question = f"{num2} x {num1} = "
+                question = f"{num2} x {num1}"
 
             if question not in questions:
                 questions.append(question)

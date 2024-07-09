@@ -1,0 +1,33 @@
+h1{
+    padding:auto;
+    background-color: red;
+    text-align: center;
+}
+
+#question-box{
+    background-color: paleturquoise;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+    
+}
+
+.question-line{
+    background-color: pink;
+
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+    
+}
+
+.question-num{
+    background-color: aquamarine;
+}
+
+.question{
+    background-color: lightgreen;
+}

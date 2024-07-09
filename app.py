@@ -12,9 +12,10 @@ def timesTableForm():
 @app.route("/worksheet", methods=["post", "get"])
 def worksheet():
     if request.method == "POST":
-        # get worksheet title and num of questions
+        # get worksheet title, instrs and num of questions
         title = request.form.get("title")
         qCount = int(request.form.get("questions"))
+        instrs = request.form.get("instructions")
 
         # get numbers to multiply by
         selectedNums = request.form.getlist("times-tables")
@@ -45,7 +46,7 @@ def worksheet():
             questions.append(random.choice(questions))
 
             
-        return render_template("worksheet.html", ws=Worksheet(title, "", questions))
+        return render_template("worksheet.html", ws=Worksheet(title, instrs, questions))
     return "get"
 
 if __name__ == '__main__':

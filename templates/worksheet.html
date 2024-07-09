@@ -10,16 +10,18 @@
 
     <body>
         <h1>{{ws.title}}</h1>
+        
 
-        <p>{{ws.instructions}}</p>
-
+        {% if ws.instructions != "" %}
+            <p id="instructions">{{ws.instructions}}</p>
+        {% endif %}
         <div id="questions-box">
             {% for i in range(ws.questions|length) %}
-                <div class="question-line">
-                    <p class="question-num">{{i+1}}</p>
+                
+                    <p class="question-num">{{i+1}})</p>
                     <p class="question"> {{ws.questions[i]}}</p>
-                    <p>=</p>
-                </div>
+                    <p class="equals-sign">=</p>
+                
             {% endfor %}
         </div>
     </body>

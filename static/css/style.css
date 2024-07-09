@@ -1,33 +1,38 @@
+body{
+    padding:1em 2em;
+
+    font-family:ar
+}
+
 h1{
-    padding:auto;
-    background-color: red;
+    
+    margin:auto;
     text-align: center;
+    text-decoration: underline;
 }
 
-#question-box{
-    background-color: paleturquoise;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+#instructions{
+    padding:5px;
+
+    text-align: center;
     
-    
+    border: 1px dashed black;
+    border-radius: 5px;
 }
 
-.question-line{
-    background-color: pink;
-
-    width: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+#questions-box{
+    padding: 1em 0;
+    margin:0;
+    display: grid;
+    grid-template-columns: max-content max-content auto max-content max-content auto;
     
-    
-}
-
-.question-num{
-    background-color: aquamarine;
+    row-gap: 1em;
+    font-size: large;
+     
 }
 
 .question{
-    background-color: lightgreen;
+    margin: auto 1em;
+    text-align: left;
 }
+

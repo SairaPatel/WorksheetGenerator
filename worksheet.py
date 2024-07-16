@@ -4,4 +4,3 @@ class Worksheet:
         self.instructions = instr
         self.questions = qs
 
-    

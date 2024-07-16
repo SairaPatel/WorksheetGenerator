@@ -19,7 +19,14 @@
             {% for i in range(ws.questions|length) %}
                 
                     <p class="question-num">{{i+1}})</p>
-                    <p class="question"> {{ws.questions[i]}}</p>
+                    <p class="question"> 
+                        {% if ws.questions[i].operation == "^" %}
+                            {{ws.questions[i].operand1}}<sup>{{ws.questions[i].operand2}}</sup>
+                        {% else %}
+                            {{ws.questions[i].operand1}} {{ws.questions[i].operation}} {{ws.questions[i].operand2}}
+                        {% endif %}
+                        
+                    </p>
                     <p class="equals-sign">=</p>
                 
             {% endfor %}

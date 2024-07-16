@@ -23,7 +23,7 @@ def worksheet():
         
        
         # number of possible unique questions
-        max = (5-1) * len(selectedNums)
+        max = (upTo-1) * len(selectedNums)
         
 
         # generate questions randomly until done or until every possible unique question has been added

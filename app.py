@@ -109,7 +109,7 @@ def indicesWorksheet():
         possibleQs = []
         for i in range(2, upTo +1):
             for j in selectedNums:
-                possibleQs.append(Question(i, "^", j))
+                possibleQs.append(Question(j, "^", i))
 
         questions=[]
         # randomly pick questions until enough have been added

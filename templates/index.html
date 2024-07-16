@@ -5,7 +5,7 @@
         <title>Resource Generator</title>
 
         <link rel="stylesheet" type="text/css" href="/static/css/webpage-style.css">
-
+        <script src="/static/js/webpage.js" type="text/javascript"></script>
     </head>
 
     <body>
@@ -25,7 +25,7 @@
        
         <section>
             <h2> Times Tables Worksheet</h2>
-            <form action="\worksheet" method="post">
+            <form action="\worksheet" method="post" onsubmit="return validateBoxes();">
 
                     
                     <label for="title-input">Worksheet Title: </label>
@@ -51,20 +51,27 @@
                     <textarea type="" id="instructions-input" name="instructions" >Try to complete as many as you can in 1 minute.</textarea>
                     
                     
-                    <label>Times Tables:</label>
+                    <label>Multiplicands:</label>
                     
                     {% for n in range(2,13) %}
+                    
                         <label for="checkbox{{n}}" class="checkbox-label">{{n}}</label>
-                        <input type="checkbox" value="{{n}}" name="times-tables" id="checkbox{{n}}" checked>
+                        <input type="checkbox" value="{{n}}" name="times-tables" id="checkbox{{n}}">
                         
                     {% endfor %}
                     <br/>
-                    <br/>
-                    
-                    
-                    <button type="submit">Create Worksheet</button>
 
+                    <div class="extra-checkbox">
+                        <label for="select-all-checkbox" class="checkbox-label">Select/Deselect All</label>
+                        <input type="checkbox" id="select-all-checkbox" onclick="selectAll()">
+                    </div>
+                    <p id="error-message" hidden>Please select at least 1 multiplicand.</p>
                 
+                    <br/>               
+                    
+                    
+                    <button type="submit"value="Submit">Create Worksheet</button>
+                    
                 
             </form>
         </section>

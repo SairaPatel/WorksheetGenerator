@@ -21,29 +21,23 @@ def worksheet():
         selectedNums = request.form.getlist("times-tables")
         upTo = int(request.form.get("up-to"))
         
-       
-        # number of possible unique questions
-        max = (upTo-1) * len(selectedNums)
-        
 
-        # generate questions randomly until done or until every possible unique question has been added
-        questions = []
+        # generate every possible question using the numbers given
+        possibleQs = []
+        for i in range(2, upTo +1):
+            for j in selectedNums:
+                possibleQs.append(f"{str(i)} x {j}")
 
-        while len(questions) < max and len(questions) < qCount:
-            num1 = random.randint(2, upTo)
-            num2 = int(random.choice(selectedNums))
-
-            if num1 < num2:
-                question = f"{num1} x {num2}"
-            else:
-                question = f"{num2} x {num1}"
-
-            if question not in questions:
-                questions.append(question)
-
-        # if still not done (but every possible q has been added), fill in with duplicate questions
+        questions=[]
+        # randomly pick questions until enough have been added
         while len(questions) < qCount:
-            questions.append(random.choice(questions))
+            chosen = random.choice(possibleQs)
+            possibleQs.remove(chosen)
+            questions.append(chosen)
+
+            # if all possible questions have been added, start adding duplicates
+            if len(possibleQs) == 0:
+                possibleQs = list(questions)
 
             
         return render_template("worksheet.html", ws=Worksheet(title, instrs, questions))

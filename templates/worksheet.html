@@ -27,7 +27,11 @@
                         {% endif %}
                         
                     </p>
-                    <p class="equals-sign">=</p>
+                    {% if ws.questions[i].operation == "" %}
+                        <p class="equals-sign"></p>
+                    {% else %}
+                        <p class="equals-sign">=</p>
+                    {% endif %}
                 
             {% endfor %}
         </div>

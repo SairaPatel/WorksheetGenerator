@@ -10,13 +10,17 @@ app = Flask(__name__)
 def timesTableForm():
     return render_template("timesTablesForm.html")
 
-@app.route("/divisionForm")
+@app.route("/division")
 def divisionForm():
     return render_template("divisionForm.html")
 
-@app.route("/indicesForm")
+@app.route("/indices")
 def indicesForm():
     return render_template("indicesForm.html")
+
+@app.route("/formulae")
+def formulaeForm():
+    return render_template("formulaeForm.html")
 
 
 @app.route("/timesTablesWorksheet", methods=["post", "get"])
@@ -142,6 +146,75 @@ def indicesWorksheet():
                 possibleQs = list(questions)
 
             
+        return render_template("worksheet.html", ws=Worksheet(title, instrs, questions))
+    return "get"
+
+
+@app.route("/formulaeWorksheet", methods=["post", "get"])
+def formulaeWorksheet():
+    if request.method == "POST":
+        # get worksheet title and instrs
+        title = request.form.get("title")
+        instrs = request.form.get("instructions")
+
+        # get topics
+        topics = request.form.getlist("topics")
+
+        # get foundation
+        higher = len(request.form.getlist("foundation")) == 0
+
+        
+        # generate all questions for selected topics
+        possibleQs = []
+
+        if "areas" in topics:
+            possibleQs.append(Question("Area of a rectangle", "", ""))
+            possibleQs.append(Question("Area of a triangle", "", ""))
+            possibleQs.append(Question("Area of a paralellogram", "", ""))
+            possibleQs.append(Question("Area of a trapezium", "", ""))
+            possibleQs.append(Question("Area of a circle", "", ""))
+            possibleQs.append(Question("Circumference of a circle", "", ""))
+        if "volumes" in topics:
+            possibleQs.append(Question("Volume of a prism", "", ""))
+            possibleQs.append(Question("Volume of a cylinder", "", ""))
+            
+            if higher:
+                possibleQs.append(Question("Volume of a pyramid", "", ""))
+        if "pythag" in topics:
+            possibleQs.append(Question("Pythagoras' theorem", "", ""))
+            possibleQs.append(Question("SOHCAHTOA", "", ""))
+        
+        for x in [0, 30, 45, 60, 90]:
+            if "sin-vals" in topics:
+                possibleQs.append(Question(f"Exact value of sin({x})", "", ""))
+            if "cos-vals" in topics:
+                possibleQs.append(Question(f"Exact value of cos({x})", "", ""))            
+            if "tan-vals" in topics:
+                possibleQs.append(Question(f"Exact value of tan({x})", "", ""))
+            
+            
+        if "sine-cosine" in topics and higher:
+            possibleQs.append(Question("Sine rule", "", ""))
+            possibleQs.append(Question("Cosine rule", "", ""))
+            possibleQs.append(Question("Area of a triangle (using trigonometry)", "", ""))
+
+        if "quadratic" in topics and higher:
+            possibleQs.append(Question("Quadratic formula", "", ""))
+
+        
+        # randomise question if necessary
+        if len(request.form.getlist("randomise")) == 0:
+            questions = possibleQs
+        else:
+            qCount= len(possibleQs)
+            questions=[]
+            # randomly pick questions until enough all questions have been added/reordered
+            while len(questions) < qCount:
+                chosen = random.choice(possibleQs)
+                possibleQs.remove(chosen)
+                questions.append(chosen)
+
+
         return render_template("worksheet.html", ws=Worksheet(title, instrs, questions))
     return "get"
 

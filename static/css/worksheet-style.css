@@ -1,0 +1,39 @@
+body{
+    padding:1em 2em;
+
+    
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1{
+    
+    margin:auto;
+    text-align: center;
+    text-decoration: underline;
+}
+
+#instructions{
+    padding:5px;
+
+    text-align: center;
+    
+    border: 1px dashed black;
+    border-radius: 5px;
+}
+
+#questions-box{
+    padding: 1em 0;
+    margin:0;
+    display: grid;
+    grid-template-columns: max-content max-content auto max-content max-content auto;
+    
+    row-gap: 1em;
+    font-size: large;
+     
+}
+
+.question{
+    margin: auto 1em;
+    text-align: left;
+}
+

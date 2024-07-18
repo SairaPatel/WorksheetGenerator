@@ -1,0 +1,134 @@
+
+*{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    margin:0;
+}
+
+
+
+/*header bar with title and nav --------------------------------------*/ 
+
+header{
+    width:100%;
+    margin:0px;
+    padding:5px 1em;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    
+    box-shadow: 0 4px 2px -4px black;
+}
+
+
+h1{
+    color:cornflowerblue;
+}
+
+nav {
+    display:flex;
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: flex-end;
+    column-gap: 2em;
+
+}
+
+nav a{
+    text-decoration: none;
+    color:black;
+    
+    transition: color 0.2s;
+    
+}
+
+nav a:hover{
+    color:cornflowerblue;
+}
+
+nav #current{
+    font-weight: bold;
+    color:cornflowerblue;
+}
+
+
+
+/* main page section with form -------------------------*/
+section{
+    padding:1em;
+
+    width:max-content;
+    margin: auto;
+}
+
+h2{
+    text-align: center;
+    
+    margin:1em;
+}
+
+/* non-checkbox form inputs */
+label:not(.checkbox-label){
+    display: block;
+    text-align: center;
+    width:100%;
+
+    margin:3px;
+
+    font-size:small;
+}
+
+input:not(input[type="checkbox"]), textarea, button{
+    border: 1px solid cornflowerblue;
+    border-radius: 2px;
+    
+    width:100%;
+    margin-bottom: 1em;
+    
+    text-align: center;
+
+    padding:5px;
+    font-size:medium;
+
+    resize:vertical;
+
+}
+
+/* checkbox form inputs */
+input[type="checkbox"]{
+    margin-right:1em;
+    margin-bottom:1em;
+}
+
+.checkbox-label{
+    font-size:medium;
+}
+
+.extra-checkbox{
+    text-align: center;
+    
+}
+
+
+/* submit button */
+button{
+    padding:5px;
+
+    background-color: cornflowerblue;
+    color:white;
+
+    border:none;
+    border-radius: 3px;
+
+    font-size: medium;
+}
+
+
+#error-message{
+    color:red;
+    text-align: center;
+
+}
+

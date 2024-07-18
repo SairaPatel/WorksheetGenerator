@@ -1,0 +1,36 @@
+<!DOCTYPE html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Maths Resource Generator</title>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/webpage-style.css">
+    </head>
+
+    <body>
+
+        <header> 
+            <h1>Maths Resource Generator</h1>
+
+            <nav>
+                <a href="\" {% if current=="timesTables" %}id="current"{% endif %}>
+                    Times Tables
+                </a>
+
+                <a href="\division" {% if current=="division" %}id="current"{% endif %}>
+                    Division
+                </a>
+
+                <a href="\indices" {% if current=="indices" %}id="current"{% endif %}>
+                    Indices
+                </a>
+
+                <a href="\formulae" {% if current=="formulae" %}id="current"{% endif %}>
+                    Formulae and Trig Vals
+                </a>
+
+            </nav>
+
+        </header>
+    </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html lang="en">
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Resource Generator</title>
+
+        <link rel="stylesheet" type="text/css" href="/static/css/webpage-style.css">
+        <script src="/static/js/webpage.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+
+        {% with current="formulae" %}
+            {% include "header.html" %}
+        {% endwith %}
+       
+        <section>
+            <h2> Formulae and Trig Values Quiz</h2>
+            <form action="\formulaeWorksheet" method="post">
+
+                    
+                    <label for="title-input">Worksheet Title: </label>
+                    <input type="text" id="title-input" name="title" value="Formulae Quiz">
+                    
+                    <label for="instructions-input">Instructions:</label>
+                    <textarea type="" id="instructions-input" name="instructions" >Write the formulae or values for each of the following. Draw a diagram where appropriate.</textarea>
+                    
+                    <div class="extra-checkbox">
+                        <label for="checkbox2" class="checkbox-label">Areas of Shapes</label>
+                        <input type="checkbox" id="checkbox2" value="areas" name="topics">
+                    </div>
+
+                    <div class="extra-checkbox">
+                        <label for="checkbox3" class="checkbox-label">Volumes of Shapes</label>
+                        <input type="checkbox" id="checkbox3" value="volumes" name="topics">
+                    </div>
+                    
+                    <div class="extra-checkbox">
+                        <label for="checkbox4" class="checkbox-label">Pythagoras' theorem and SOHCAHTOA</label>
+                        <input type="checkbox" id="checkbox4" value="pythag" name="topics">
+                    </div>
+
+                    <div class="extra-checkbox">
+                        <label for="checkbox5" class="checkbox-label">Exact sin values</label>
+                        <input type="checkbox" id="checkbox5" value="sin-vals" name="topics">
+                        
+                        <label for="checkbox6" class="checkbox-label">Exact cos values</label>
+                        <input type="checkbox" id="checkbox6" value="cos-vals" name="topics">
+                        
+                        <label for="checkbox7" class="checkbox-label">Exact tan values</label>
+                        <input type="checkbox" id="checkbox7" value="tan-vals" name="topics">
+                        
+
+                    <div class="extra-checkbox">
+                        <label for="checkbox8" class="checkbox-label">Sine and Cosine rules</label>
+                        <input type="checkbox" id="checkbox8" value="sine-cosine" name="topics">
+                    </div>
+
+                    <div class="extra-checkbox">
+                        <label for="checkbox9" class="checkbox-label">Quadratic Forumla</label>
+                        <input type="checkbox" id="checkbox9" value="quadratic" name="topics">
+                    </div>
+
+                    <div class="extra-checkbox">
+                        <label for="select-all-checkbox" class="checkbox-label">Select/Deselect All</label>
+                        <input type="checkbox" id="select-all-checkbox" onclick="selectAll()">
+                    </div>
+                    <p id="error-message" hidden>Please select at least 1 base.</p>
+
+                    <br/>   
+                    
+                    
+                    <div class="extra-checkbox">
+                        <label for="foundation-checkbox" class="checkbox-label">Foundation (exclude Higher content)</label>
+                        <input type="checkbox" id="foundation-checkbox" value="foundation" name="foundation">
+                    </div>
+
+                    <div class="extra-checkbox">
+                        <label for="randomise-checkbox" class="checkbox-label">Randomise question order</label>
+                        <input type="checkbox" id="randomise-checkbox" value="randomise" name="randomise">
+                    </div>
+                    
+                    <button type="submit"value="Submit">Create Worksheet</button>
+                    
+                
+            </form>
+        </section>
+
+        
+    </body>
+</html>

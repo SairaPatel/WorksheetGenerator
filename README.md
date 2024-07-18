@@ -28,6 +28,6 @@ Here is a preview of a generated worksheet:
 ![image](https://github.com/user-attachments/assets/191dd611-3cef-4e4d-b639-f5e02c5c4106)
 
 
-## Eval ## 
+## Summary ## 
 This project had minimal complexity but is perfectly effective for my initial goal/vision. The interface is not too convoluted but there is still the ability customise resources as much as needed with minimal effort/input. The worksheet generation is randomised and straightforward. No database was required due to the mathmatical nature of the resources. 
 In future, I could see myself extending this project beyond non-mathmatical resources, perhaps allowing a simiiar automated generation of worksheets/quizes using a database of pre-entered content. 

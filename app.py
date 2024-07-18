@@ -104,12 +104,31 @@ def indicesWorksheet():
         selectedNums = request.form.getlist("bases")
         upTo = int(request.form.get("up-to"))
         
+        # get fractional
+        indicesType = request.form.getlist("indices-type")
 
         # generate every possible question using the numbers given
         possibleQs = []
-        for i in range(2, upTo +1):
-            for j in selectedNums:
+        
+        for j in selectedNums:
+            for i in range(2, upTo +1):
+
+                # add question
                 possibleQs.append(Question(j, "^", i))
+
+                # add negative index question
+                if "negative" in indicesType:
+                    possibleQs.append(Question(j, "^", -1*i))
+
+                # add reciprocal index question
+                if "reciprocal" in indicesType:
+                    possibleQs.append(Question(int(j)**i, "^", f"1/{i}"))
+
+            # add zero index question
+            if "zero" in indicesType:
+                possibleQs.append(Question(j, "^", 0))
+
+
 
         questions=[]
         # randomly pick questions until enough have been added
